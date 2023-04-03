@@ -478,11 +478,20 @@ table {
     border-spacing: 0;
 }
 
+@font-face {
+    font-display: swap;
+  font-family: "Manrope";
+  font-style: normal;
+  font-weight: 400;
+  src: url("../fonts/Manrope-Regular.eot");
+  src: url("../fonts/Manrope-Regular.eot?#iefix") format("embedded-opentype"), url("../fonts/Manrope-Regular.woff") format("woff"), url("../fonts/Manrope-Regular.ttf") format("truetype");
+}
+
 body {
     font-size: 16px;
     font-family: "Manrope", sans-serif;
     font-weight: 400;
-    color: #18191F;
+    color: #18191f;
 }
 
 a {
@@ -501,26 +510,283 @@ a {
     padding: 0 15px;
 }
 
-.intro {
+@media (min-width: 576px) {
+    .container {
+        min-width: 560px;
+    }
+}
+
+@media (min-width: 768px) {
+    .container {
+        min-width: 720px;
+    }
+}
+
+@media (min-width: 992px) {
+    .container {
+        min-width: 960px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1110px;
+        padding: 0;
+    }
+}
+
+.header {
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    background-color: #ffffff;
+  /* Header-Bg */
+  /* Logo */
+  /* Burger */
+  /* Nav */
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 11px 15px;
+}
+
+.header__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 7;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.header__bg.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.header .logo {
+    display: flex;
+    align-items: flex-end;
+    transition: 0.3s ease;
+}
+
+.header .logo:hover {
+    opacity: 0.6;
+}
+
+.header .logo__img {
+    width: 50px;
+    margin-right: 5px;
+}
+
+.header .logo__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.header .logo__text-img {
+    width: 90px;
+}
+
+.header .logo__text-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: contain;
+    object-fit: contain;
+}
+
+.header .burger {
+    position: relative;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+}
+
+.header .burger__item {
+    position: relative;
+    width: 100%;
+    height: 2px;
+    background-color: #18191f;
+    transition: 0.3s ease;
+}
+
+.header .burger__item::before, .header .burger__item::after {
+    position: absolute;
+    content: "";
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #18191f;
+    transition: 0.3s ease;
+}
+
+.header .burger__item::before {
+    bottom: 10px;
+}
+
+.header .burger__item::after {
+    top: 10px;
+}
+
+.header .burger__item.active {
+    transform: rotate(90deg);
+    background: none;
+}
+
+.header .burger__item.active::before {
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+
+.header .burger__item.active::after {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.header .nav {
+    position: absolute;
+    top: -1200%;
+    right: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
     height: 100vh;
     background: linear-gradient(194.01deg, #D9E8EF 9.6%, #EAF2F5 89.64%);
+    transition: 0.3s ease;
+}
+
+.header .nav.active {
+    opacity: 1;
+    pointer-events: all;
+    top: 0;
+}
+
+.header .nav__items {
+    width: -moz-fit-content;
+    width: fit-content;
+    margin: 0 auto;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 143%;
+    transition: 0.3s ease;
+}
+
+.header .nav__items:not(:last-child) {
+    margin-bottom: 30px;
+}
+
+.header .nav__items:hover {
+    opacity: 0.6;
+}
+
+.header .nav .btn {
+    display: inline-block;
+    padding: 10px 13px;
+    color: #ffffff;
+    background: #183181;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.header .nav .btn:hover {
+    opacity: 0.6;
+}
+
+@media (min-width: 576px) {
+    .header .nav {
+        width: 70%;
+    }
+}
+
+@media (min-width: 768px) {
+    .header .nav {
+        width: 50%;
+    }
+}
+
+@media (min-width: 992px) {
+    .header .burger {
+        display: none;
+    }
+
+    .header .nav {
+        position: static;
+        width: auto;
+        height: auto;
+        background: none;
+    }
+
+    .header .nav__list {
+        display: flex;
+        align-items: center;
+    }
+
+    .header .nav__items {
+        width: -moz-fit-content;
+        width: fit-content;
+        margin-bottom: 0 !important;
+    }
+
+    .header .nav__items:not(:last-child) {
+        margin-right: 30px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header__container {
+        max-width: 1140px;
+    }
+}
+
+.intro {
+    position: relative;
+    height: 100vh;
+    background: linear-gradient(194.01deg, #D9E8EF 9.6%, #EAF2F5 89.64%);
+}
+
+.intro::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: url(../images/intro-bg.jpg) right bottom/contain no-repeat;
 }
 
 .intro__container {
     position: relative;
     display: flex;
     align-items: center;
-    background: url(../images/intro-bg.jpg) right bottom/contain no-repeat;
 }
 
 .intro__offer {
+    position: relative;
+    z-index: 2;
     display: flex;
     flex-direction: column;
-    max-width: 380px;
+    max-width: 450px;
 }
 
 .intro__title {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
     font-weight: 800;
     font-size: 42px;
 }
@@ -558,5 +824,51 @@ a {
 .intro__line {
     width: 80px;
     height: 2px;
-    background-color: #18191F;
+    background-color: #18191f;
+}
+
+@media (min-width: 576px) {
+    .intro__container {
+        padding-left: 40px;
+    }
+}
+
+@media (min-width: 768px) {
+    .intro__container {
+        padding-left: 80px;
+    }
+}
+
+@media (min-width: 992px) {
+    .intro__container {
+        padding-left: 100px;
+    }
+
+    .intro__title {
+        font-size: 72px;
+        line-height: 110%;
+    }
+
+    .intro__description {
+        line-height: 150%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .intro__container {
+        padding-top: 40px;
+        padding-left: 0;
+    }
+
+    .intro__offer {
+        max-width: 530px;
+    }
+
+    .intro__title {
+        line-height: 136%;
+    }
+
+    .intro__description {
+        line-height: 178%;
+    }
 }
