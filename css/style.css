@@ -569,6 +569,38 @@ a {
     line-height: 162%;
 }
 
+.title {
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-size: 25px;
+    line-height: 133%;
+}
+
+.subtitle {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 133%;
+}
+
+.btn {
+    display: block;
+    width: -moz-fit-content;
+    width: fit-content;
+    padding: 10px 13px;
+    color: #ffffff;
+    background: #183181;
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.btn:hover {
+    opacity: 0.6;
+}
+
+.btn--center {
+    margin: 0 auto;
+}
+
 @media (min-width: 576px) {
     .container {
         min-width: 560px;
@@ -589,12 +621,25 @@ a {
     .container {
         min-width: 960px;
     }
+
+    .title {
+        margin-bottom: 48px;
+        font-size: 35px;
+    }
+
+    .subtitle {
+        font-size: 24px;
+    }
 }
 
 @media (min-width: 1200px) {
     .container {
         max-width: 1110px;
         padding: 0;
+    }
+
+    .title {
+        font-size: 48px;
     }
 }
 
@@ -755,19 +800,6 @@ a {
 }
 
 .header .nav__items:hover {
-    opacity: 0.6;
-}
-
-.header .nav .btn {
-    display: inline-block;
-    padding: 10px 13px;
-    color: #ffffff;
-    background: #183181;
-    border-radius: 8px;
-    transition: 0.3s ease;
-}
-
-.header .nav .btn:hover {
     opacity: 0.6;
 }
 
@@ -1000,5 +1032,172 @@ a {
 
     .stats .stats-data {
         align-items: flex-start;
+    }
+}
+
+.build {
+    overflow: hidden;
+}
+
+.build__list {
+    display: grid;
+    grid-template-columns: 255px;
+    justify-content: center;
+    gap: 30px;
+}
+
+.build .build-blocks {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 255px;
+    min-height: 200px;
+    padding: 24px;
+    margin: 0 auto;
+    border: 0.5px solid rgba(41, 41, 41, 0.15);
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.2);
+    border-radius: 8px;
+    transition: 0.3s ease;
+}
+
+.build .build-blocks::after {
+    position: absolute;
+    content: "";
+    bottom: -20px;
+    right: -20px;
+    z-index: -1;
+    width: 80%;
+    height: 100%;
+}
+
+.build .build-blocks:hover {
+    transform: scale(1.05);
+}
+
+.build .stocks::after {
+    background: url(../images/build/stocks.png) bottom right/contain no-repeat;
+}
+
+.build .cold-rooms::after {
+    background: url(../images/build/cold-rooms.png) bottom right/contain no-repeat;
+}
+
+.build .logistics::after {
+    background: url(../images/build/logistics-centers.png) bottom right/contain no-repeat;
+}
+
+.build .industrial::after {
+    background: url(../images/build/industrial-premises.png) bottom right/contain no-repeat;
+}
+
+.build .commercial::after {
+    background: url(../images/build/commercial-facilities.png) bottom right/contain no-repeat;
+}
+
+.build .metal::after {
+    background: url(../images/build/metal-constructions.png) bottom right/contain no-repeat;
+}
+
+.build .sandwich::after {
+    background: url(../images/build/sandwich-panels.png) bottom right/contain no-repeat;
+}
+
+.build .reconstruction::after {
+    background: url(../images/build/building-reconstruction.png) bottom right/contain no-repeat;
+}
+
+@media (min-width: 576px) {
+    .build__list {
+        grid-template-columns: repeat(2, 255px);
+    }
+}
+
+@media (min-width: 992px) {
+    .build__list {
+        grid-template-columns: repeat(3, 255px);
+    }
+}
+
+@media (min-width: 1200px) {
+    .build__list {
+        grid-template-columns: repeat(4, 255px);
+    }
+}
+
+.projects__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 50px;
+    margin-bottom: 50px;
+}
+
+.projects .buildings {
+    padding: 15px;
+    border: 0.5px solid rgba(41, 41, 41, 0.15);
+    box-shadow: 0px 10px 20px rgba(41, 41, 42, 0.2);
+    border-radius: 8px;
+}
+
+.projects .buildings:hover img {
+    transform: scale(1.1);
+}
+
+.projects .buildings__title {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.projects .buildings__title span {
+    font-weight: 400;
+}
+
+.projects .buildings__img {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.projects .buildings__img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+    transition: 0.3s ease;
+}
+
+.projects .buildings__terms {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projects .buildings__terms span {
+    font-weight: 800;
+    font-size: 14px;
+    line-height: 129%;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+@media (min-width: 576px) {
+    .projects__list {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 992px) {
+    .projects .buildings__title {
+        font-size: 28px;
+    }
+
+    .projects .buildings__img {
+        height: 375px;
     }
 }
