@@ -60,6 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const accordion = () => {
     for (let i = 0; control.length > i; ++i) {
       control[i].addEventListener('click', (e) => {
+        if (control[i].classList.contains('open')) {
+          control[i].classList.remove('open');
+          control[i].setAttribute('aria-expanded', false);
+          content[i].style.maxHeight = null;
+          content[i].style.opacity = null;
+          content[i].setAttribute('aria-hidden', true);
+          return;
+        }
         for (let i = 0; control.length > i; ++i) {
           control[i].classList.remove('open');
           control[i].setAttribute('aria-expanded', false);
