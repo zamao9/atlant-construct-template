@@ -1860,6 +1860,7 @@ a {
 
 .footer .form__input {
     position: relative;
+    width: 100%;
     max-width: 255px;
 }
 
@@ -1868,7 +1869,7 @@ a {
     -moz-appearance: none;
     appearance: none;
     -webkit-appearance: none;
-    padding: 8px 30px 8px 12px;
+    padding: 8px 35px 8px 12px;
     color: #ffffff;
     letter-spacing: 1px;
     border: none;
@@ -1899,11 +1900,12 @@ a {
 .footer .form__input button {
     position: absolute;
     top: 50%;
-    right: 5px;
+    right: 10px;
     transform: translateY(-50%);
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
     -moz-appearance: none;
     appearance: none;
     -webkit-appearance: none;
@@ -1929,9 +1931,13 @@ a {
 @media (min-width: 576px) {
     .footer .accordion {
         display: grid;
-        grid-template-columns: repeat(2, minmax(auto, 300px));
+        grid-template-columns: repeat(3, minmax(auto, 300px));
         justify-content: center;
         gap: 30px;
+    }
+
+    .footer .form {
+        grid-column: 2 span;
     }
 }
 
@@ -1947,7 +1953,7 @@ a {
     }
 
     .footer .accordion {
-        grid-template-columns: repeat(2, auto);
+        grid-template-columns: repeat(3, auto);
     }
 
     .footer .accordion__list {
